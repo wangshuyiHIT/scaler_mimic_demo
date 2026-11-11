@@ -1,0 +1,735 @@
+name: scaler_ufo_morphology_24dof
+xml_path: scaler_ufo_carrier.xml
+base_body: base_link
+root_joint: root
+root_quat_order: wxyz
+coordinate_system: z_up
+dof_unit: rad
+control_joints:
+  mode: explicit
+  names:
+  - left_hip_pitch_joint
+  - right_hip_pitch_joint
+  - torso_yaw_joint
+  - left_hip_roll_joint
+  - right_hip_roll_joint
+  - left_hip_yaw_joint
+  - right_hip_yaw_joint
+  - torso_pitch_joint
+  - left_shoulder_pitch_joint
+  - right_shoulder_pitch_joint
+  - left_knee_joint
+  - right_knee_joint
+  - left_shoulder_roll_joint
+  - right_shoulder_roll_joint
+  - left_shoulder_yaw_joint
+  - right_shoulder_yaw_joint
+  - left_ankle_pitch_joint
+  - right_ankle_pitch_joint
+  - left_ankle_roll_joint
+  - right_ankle_roll_joint
+  - left_elbow_joint
+  - right_elbow_joint
+  - left_wrist_yaw_joint
+  - right_wrist_yaw_joint
+feet:
+- left_ankle_roll_link
+- right_ankle_roll_link
+hands:
+- left_wrist_yaw_link
+- right_wrist_yaw_link
+key_bodies:
+- base_link
+- torso_pitch_link
+- left_ankle_roll_link
+- right_ankle_roll_link
+- left_wrist_yaw_link
+- right_wrist_yaw_link
+default_dof_pos:
+  left_hip_pitch_joint: -0.19162
+  right_hip_pitch_joint: 0.19162
+  torso_yaw_joint: 0.0
+  left_hip_roll_joint: -0.025
+  right_hip_roll_joint: 0.025
+  left_hip_yaw_joint: 0.0
+  right_hip_yaw_joint: 0.0
+  torso_pitch_joint: 0.0
+  left_shoulder_pitch_joint: 0.2
+  right_shoulder_pitch_joint: -0.2
+  left_knee_joint: 0.35
+  right_knee_joint: -0.35
+  left_shoulder_roll_joint: -1.4
+  right_shoulder_roll_joint: 1.4
+  left_shoulder_yaw_joint: -0.45
+  right_shoulder_yaw_joint: 0.45
+  left_ankle_pitch_joint: 0.15838
+  right_ankle_pitch_joint: -0.15838
+  left_ankle_roll_joint: 0.025
+  right_ankle_roll_joint: -0.025
+  left_elbow_joint: -0.5
+  right_elbow_joint: 0.5
+  left_wrist_yaw_joint: 0.0
+  right_wrist_yaw_joint: 0.0
+training:
+  hydra_robot: g1/g1_29dof_hard_waist
+  hydra_overrides:
+  - env.config.lie_down_init=True
+  - env.config.lie_down_init_prob=0.3
+  semantics:
+    contact_bodies:
+    - left_ankle_roll_link
+    - right_ankle_roll_link
+    undesired_contact_bodies: []
+    torso_name: torso_pitch_link
+    left_ankle_dof_names:
+    - left_ankle_pitch_joint
+    - left_ankle_roll_joint
+    right_ankle_dof_names:
+    - right_ankle_pitch_joint
+    - right_ankle_roll_joint
+  init_state:
+    pos:
+    - 0.0
+    - 0.0
+    - 0.8408813683961311
+    rot:
+    - 0.0
+    - 0.0
+    - 0.0
+    - 1.0
+    lin_vel:
+    - 0.0
+    - 0.0
+    - 0.0
+    ang_vel:
+    - 0.0
+    - 0.0
+    - 0.0
+    default_joint_angles:
+      left_hip_pitch_joint: -0.19162
+      right_hip_pitch_joint: 0.19162
+      torso_yaw_joint: 0.0
+      left_hip_roll_joint: -0.025
+      right_hip_roll_joint: 0.025
+      left_hip_yaw_joint: 0.0
+      right_hip_yaw_joint: 0.0
+      torso_pitch_joint: 0.0
+      left_shoulder_pitch_joint: 0.2
+      right_shoulder_pitch_joint: -0.2
+      left_knee_joint: 0.35
+      right_knee_joint: -0.35
+      left_shoulder_roll_joint: -1.4
+      right_shoulder_roll_joint: 1.4
+      left_shoulder_yaw_joint: -0.45
+      right_shoulder_yaw_joint: 0.45
+      left_ankle_pitch_joint: 0.15838
+      right_ankle_pitch_joint: -0.15838
+      left_ankle_roll_joint: 0.025
+      right_ankle_roll_joint: -0.025
+      left_elbow_joint: -0.5
+      right_elbow_joint: 0.5
+      left_wrist_yaw_joint: 0.0
+      right_wrist_yaw_joint: 0.0
+  control:
+    action_scale: 0.25
+    action_clip_value: 4.0
+    normalize_action_to: 4.0
+    effort_limit_scale: 1.0
+    effort_limit:
+    - 140.0
+    - 140.0
+    - 140.0
+    - 140.0
+    - 140.0
+    - 42.0
+    - 42.0
+    - 140.0
+    - 42.0
+    - 42.0
+    - 140.0
+    - 140.0
+    - 42.0
+    - 42.0
+    - 28.5
+    - 28.5
+    - 42.0
+    - 42.0
+    - 28.5
+    - 28.5
+    - 42.0
+    - 42.0
+    - 28.5
+    - 28.5
+    velocity_limit:
+    - 13.6136
+    - 13.6136
+    - 13.6136
+    - 13.6136
+    - 13.6136
+    - 16.2316
+    - 16.2316
+    - 13.6136
+    - 16.2316
+    - 16.2316
+    - 13.6136
+    - 13.6136
+    - 16.2316
+    - 16.2316
+    - 20.94395
+    - 20.94395
+    - 16.2316
+    - 16.2316
+    - 20.94395
+    - 20.94395
+    - 16.2316
+    - 16.2316
+    - 20.94395
+    - 20.94395
+    stiffness:
+      hip_pitch: 150.0
+      hip_roll: 100.0
+      hip_yaw: 75.0
+      knee: 200.0
+      torso_yaw: 150.0
+      torso_pitch: 300.0
+      ankle_pitch: 100.0
+      ankle_roll: 20.0
+      shoulder_pitch: 60.0
+      shoulder_roll: 60.0
+      shoulder_yaw: 40.0
+      elbow: 60.0
+      wrist_yaw: 20.0
+    damping:
+      hip_pitch: 7.5
+      hip_roll: 5.0
+      hip_yaw: 3.25
+      knee: 10.0
+      torso_yaw: 7.5
+      torso_pitch: 15.0
+      ankle_pitch: 5.0
+      ankle_roll: 1.0
+      shoulder_pitch: 3.0
+      shoulder_roll: 3.0
+      shoulder_yaw: 2.0
+      elbow: 3.0
+      wrist_yaw: 1.0
+  actuator:
+    source: yaml
+    joints:
+      left_hip_pitch_joint: &id001
+        effort_limit: 140.0
+        velocity_limit: 13.6136
+        armature: 0.01
+        friction: 0.01
+      right_hip_pitch_joint: *id001
+      torso_yaw_joint: &id004
+        effort_limit: 140.0
+        velocity_limit: 13.6136
+        armature: 0.01
+        friction: 0.01
+      left_hip_roll_joint: &id002
+        effort_limit: 140.0
+        velocity_limit: 13.6136
+        armature: 0.01
+        friction: 0.01
+      right_hip_roll_joint: *id002
+      left_hip_yaw_joint: &id003
+        effort_limit: 42.0
+        velocity_limit: 16.2316
+        armature: 0.01
+        friction: 0.01
+      right_hip_yaw_joint: *id003
+      torso_pitch_joint: *id004
+      left_shoulder_pitch_joint: &id005
+        effort_limit: 42.0
+        velocity_limit: 16.2316
+        armature: 0.01
+        friction: 0.01
+      right_shoulder_pitch_joint: *id005
+      left_knee_joint: &id006
+        effort_limit: 140.0
+        velocity_limit: 13.6136
+        armature: 0.01
+        friction: 0.01
+      right_knee_joint: *id006
+      left_shoulder_roll_joint: *id005
+      right_shoulder_roll_joint: *id005
+      left_shoulder_yaw_joint: &id007
+        effort_limit: 28.5
+        velocity_limit: 20.94395
+        armature: 0.01
+        friction: 0.01
+      right_shoulder_yaw_joint: *id007
+      left_ankle_pitch_joint: &id008
+        effort_limit: 42.0
+        velocity_limit: 16.2316
+        armature: 0.01
+        friction: 0.01
+      right_ankle_pitch_joint: *id008
+      left_ankle_roll_joint: *id007
+      right_ankle_roll_joint: *id007
+      left_elbow_joint: &id009
+        effort_limit: 42.0
+        velocity_limit: 16.2316
+        armature: 0.01
+        friction: 0.01
+      right_elbow_joint: *id009
+      left_wrist_yaw_joint: *id007
+      right_wrist_yaw_joint: *id007
+  morphology:
+    enabled: true
+    family_names:
+    - thigh
+    - calf
+    - torso
+    - upperarm
+    - forearm
+    observation_scale_m: 0.05
+    family_bounds_m:
+    - - -0.05
+      - 0.05
+    - - -0.1
+      - 0.05
+    - - -0.005
+      - 0.05
+    - - -0.01
+      - 0.05
+    - - -0.1
+      - 0.05
+    sigma_m: 0.02
+    clip_m: 0.05
+    anchor_fraction: 0.15
+    body_offsets:
+    - body_name: left_thigh_length_link
+      family_index: 0
+      axis:
+      - 0.0
+      - 0.0
+      - -1.0
+    - body_name: right_thigh_length_link
+      family_index: 0
+      axis:
+      - 0.0
+      - 0.0
+      - -1.0
+    - body_name: left_calf_length_link
+      family_index: 1
+      axis:
+      - 0.0
+      - 0.0
+      - -1.0
+    - body_name: right_calf_length_link
+      family_index: 1
+      axis:
+      - 0.0
+      - 0.0
+      - -1.0
+    - body_name: torso_length_link
+      family_index: 2
+      axis:
+      - 0.0
+      - 0.0
+      - 1.0
+    - body_name: left_upperarm_length_link
+      family_index: 3
+      axis:
+      - 0.0
+      - 0.9659258262890695
+      - 0.2588190451025159
+    - body_name: right_upperarm_length_link
+      family_index: 3
+      axis:
+      - 0.0
+      - -0.9659258262890695
+      - 0.2588190451025159
+    - body_name: left_forearm_length_link
+      family_index: 4
+      axis:
+      - 0.0
+      - 0.8386705679454178
+      - -0.5446390350150369
+    - body_name: right_forearm_length_link
+      family_index: 4
+      axis:
+      - 0.0
+      - -0.8386705679454178
+      - -0.5446390350150369
+    profiles:
+    - body_name: left_thigh_length_link
+      geom_name: left_thigh_length_link_generated_profile
+      joint_name: left_thigh_length_join
+      family_index: 0
+      axis:
+      - 0.0
+      - 0.0
+      - -1.0
+      nominal_length_m: 0.1
+      section_xy_m:
+      - 0.08
+      - 0.04
+      linear_density_kg_m: 1.58
+      nominal_center_m:
+      - 0.0
+      - 0.0
+      - 0.115
+      rotation_matrix:
+      - - 1.0
+        - 0.0
+        - 0.0
+      - - 0.0
+        - -1.0
+        - 0.0
+      - - 0.0
+        - 0.0
+        - -1.0
+      carrier_mass_kg: 1.65951468
+      carrier_com_m:
+      - 0.00010092
+      - -0.00203434
+      - 0.00790005
+      carrier_inertia_kg_m2:
+      - - 0.0012753
+        - -5.0e-07
+        - -8.3e-07
+      - - -5.0e-07
+        - 0.00166917
+        - 6.153e-05
+      - - -8.3e-07
+        - 6.153e-05
+        - 0.0007692
+    - body_name: right_thigh_length_link
+      geom_name: right_thigh_length_link_generated_profile
+      joint_name: right_thigh_length_joint
+      family_index: 0
+      axis:
+      - 0.0
+      - 0.0
+      - -1.0
+      nominal_length_m: 0.1
+      section_xy_m:
+      - 0.08
+      - 0.04
+      linear_density_kg_m: 1.58
+      nominal_center_m:
+      - 0.0
+      - 0.0
+      - 0.115
+      rotation_matrix:
+      - - 1.0
+        - 0.0
+        - 0.0
+      - - 0.0
+        - -1.0
+        - 0.0
+      - - 0.0
+        - 0.0
+        - -1.0
+      carrier_mass_kg: 1.65951468
+      carrier_com_m:
+      - -0.00010092
+      - 0.00203434
+      - 0.00790005
+      carrier_inertia_kg_m2:
+      - - 0.0012753
+        - -5.0e-07
+        - 8.3e-07
+      - - -5.0e-07
+        - 0.00166917
+        - -6.153e-05
+      - - 8.3e-07
+        - -6.153e-05
+        - 0.0007692
+    - body_name: left_calf_length_link
+      geom_name: left_calf_length_link_generated_profile
+      joint_name: left_calf_length_joint
+      family_index: 1
+      axis:
+      - 0.0
+      - 0.0
+      - -1.0
+      nominal_length_m: 0.26
+      section_xy_m:
+      - 0.08
+      - 0.04
+      linear_density_kg_m: 1.58
+      nominal_center_m:
+      - 0.0
+      - 0.064
+      - 0.19
+      rotation_matrix:
+      - - 1.0
+        - 0.0
+        - 0.0
+      - - 0.0
+        - -1.0
+        - 0.0
+      - - 0.0
+        - 0.0
+        - -1.0
+      carrier_mass_kg: 1.15529237
+      carrier_com_m:
+      - -6.321e-05
+      - 0.0691947
+      - 0.00805857
+      carrier_inertia_kg_m2:
+      - - 0.00143451
+        - -2.28e-06
+        - 5.0e-08
+      - - -2.28e-06
+        - 0.00180514
+        - -7.664e-05
+      - - 5.0e-08
+        - -7.664e-05
+        - 0.00118297
+    - body_name: right_calf_length_link
+      geom_name: right_calf_length_link_generated_profile
+      joint_name: right_calf_length_joint
+      family_index: 1
+      axis:
+      - 0.0
+      - 0.0
+      - -1.0
+      nominal_length_m: 0.26
+      section_xy_m:
+      - 0.08
+      - 0.04
+      linear_density_kg_m: 1.58
+      nominal_center_m:
+      - 0.0
+      - -0.064
+      - 0.19
+      rotation_matrix:
+      - - 1.0
+        - 0.0
+        - 0.0
+      - - 0.0
+        - -1.0
+        - 0.0
+      - - 0.0
+        - 0.0
+        - -1.0
+      carrier_mass_kg: 1.15529237
+      carrier_com_m:
+      - 6.321e-05
+      - -0.0691947
+      - 0.00805857
+      carrier_inertia_kg_m2:
+      - - 0.00143451
+        - -2.28e-06
+        - -5.0e-08
+      - - -2.28e-06
+        - 0.00180514
+        - 7.664e-05
+      - - -5.0e-08
+        - 7.664e-05
+        - 0.00118297
+    - body_name: torso_length_link
+      geom_name: torso_length_link_generated_profile
+      joint_name: torso_length_joint
+      family_index: 2
+      axis:
+      - 0.0
+      - 0.0
+      - 1.0
+      nominal_length_m: 0.045
+      section_xy_m:
+      - 0.04
+      - 0.08
+      linear_density_kg_m: 1.58
+      nominal_center_m:
+      - 0.0
+      - 0.0
+      - -0.0865
+      rotation_matrix:
+      - - 1.0
+        - 0.0
+        - 0.0
+      - - 0.0
+        - 1.0
+        - 0.0
+      - - 0.0
+        - 0.0
+        - 1.0
+      carrier_mass_kg: 1.65425714
+      carrier_com_m:
+      - -0.00011301
+      - 0.01121177
+      - -0.01011494
+      carrier_inertia_kg_m2:
+      - - 0.00152784
+        - 6.8e-07
+        - -2.15e-06
+      - - 6.8e-07
+        - 0.00129871
+        - 0.00015176
+      - - -2.15e-06
+        - 0.00015176
+        - 0.0007939
+    - body_name: left_upperarm_length_link
+      geom_name: left_upperarm_length_link_generated_profile
+      joint_name: left_upperarm_length_joint
+      family_index: 3
+      axis:
+      - 0.0
+      - 0.9659258262890695
+      - 0.2588190451025159
+      nominal_length_m: 0.05
+      section_xy_m:
+      - 0.04
+      - 0.04
+      linear_density_kg_m: 0.89
+      nominal_center_m:
+      - 0.0
+      - -0.07755409031488164
+      - 0.04218750435171009
+      rotation_matrix:
+      - - 1.0
+        - 0.0
+        - 0.0
+      - - 0.0
+        - 0.25881904510251597
+        - 0.9659258262890696
+      - - 0.0
+        - -0.9659258262890696
+        - 0.25881904510251597
+      carrier_mass_kg: 0.88801124
+      carrier_com_m:
+      - 8.857e-05
+      - -0.00392313
+      - 0.02202088
+      carrier_inertia_kg_m2:
+      - - 0.00081341
+        - 2.5e-07
+        - -2.0e-06
+      - - 2.5e-07
+        - 0.0006484
+        - -9.96e-05
+      - - -2.0e-06
+        - -9.96e-05
+        - 0.00084131
+    - body_name: right_upperarm_length_link
+      geom_name: right_upperarm_length_link_generated_profile
+      joint_name: right_upperarm_length_joint
+      family_index: 3
+      axis:
+      - 0.0
+      - -0.9659258262890695
+      - 0.2588190451025159
+      nominal_length_m: 0.05
+      section_xy_m:
+      - 0.04
+      - 0.04
+      linear_density_kg_m: 0.89
+      nominal_center_m:
+      - 0.0
+      - 0.07755409031488164
+      - 0.04218750435171009
+      rotation_matrix:
+      - - 1.0
+        - -0.0
+        - 0.0
+      - - 0.0
+        - 0.25881904510251597
+        - -0.9659258262890696
+      - - 0.0
+        - 0.9659258262890696
+        - 0.25881904510251597
+      carrier_mass_kg: 0.88801124
+      carrier_com_m:
+      - -8.857e-05
+      - 0.00392313
+      - 0.02202088
+      carrier_inertia_kg_m2:
+      - - 0.00081341
+        - 2.5e-07
+        - 2.0e-06
+      - - 2.5e-07
+        - 0.0006484
+        - 9.96e-05
+      - - 2.0e-06
+        - 9.96e-05
+        - 0.00084131
+    - body_name: left_forearm_length_link
+      geom_name: left_forearm_length_link_generated_profile
+      joint_name: left_forearm_length_joint
+      family_index: 4
+      axis:
+      - 0.0
+      - 0.8386705679454178
+      - -0.5446390350150369
+      nominal_length_m: 0.14
+      section_xy_m:
+      - 0.04
+      - 0.04
+      linear_density_kg_m: 0.89
+      nominal_center_m:
+      - 0.0
+      - -0.06038428089207007
+      - 0.03921401052108264
+      rotation_matrix:
+      - - 1.0
+        - 0.0
+        - 0.0
+      - - 0.0
+        - -0.5446390350150369
+        - 0.8386705679454178
+      - - 0.0
+        - -0.8386705679454178
+        - -0.5446390350150369
+      carrier_mass_kg: 0.03
+      carrier_com_m:
+      - 0.0
+      - 0.00485284
+      - -0.00315147
+      carrier_inertia_kg_m2:
+      - - 9.85e-06
+        - 0.0
+        - 0.0
+      - - 0.0
+        - 1.242e-05
+        - 1.67e-06
+      - - 0.0
+        - 1.67e-06
+        - 1.093e-05
+    - body_name: right_forearm_length_link
+      geom_name: right_forearm_length_link_generated_profile
+      joint_name: right_forearm_length_joint
+      family_index: 4
+      axis:
+      - 0.0
+      - -0.8386705679454178
+      - -0.5446390350150369
+      nominal_length_m: 0.14
+      section_xy_m:
+      - 0.04
+      - 0.04
+      linear_density_kg_m: 0.89
+      nominal_center_m:
+      - 0.0
+      - 0.06038428089207007
+      - 0.03921401052108264
+      rotation_matrix:
+      - - 1.0
+        - 0.0
+        - 0.0
+      - - 0.0
+        - -0.5446390350150369
+        - -0.8386705679454178
+      - - 0.0
+        - 0.8386705679454178
+        - -0.5446390350150369
+      carrier_mass_kg: 0.03
+      carrier_com_m:
+      - 0.0
+      - -0.00485284
+      - -0.00315147
+      carrier_inertia_kg_m2:
+      - - 9.85e-06
+        - 0.0
+        - 0.0
+      - - 0.0
+        - 1.242e-05
+        - -1.67e-06
+      - - 0.0
+        - -1.67e-06
+        - 1.093e-05

@@ -1,0 +1,4 @@
+mujoco==3.8.1
+numpy==1.26.4
+Pillow==11.3.0
+PyYAML==6.0.2
